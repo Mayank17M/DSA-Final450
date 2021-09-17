@@ -20,13 +20,12 @@ int countRotations(int arr[], int low, int high){
         int prev = (mid+n-1)%n;
         int next = (mid +1)%n;
         if(arr[mid]<=arr[next] && arr[mid]<=arr[prev]){
-            return mid;
+            return mid; 
         }
-        if(arr[low]<=arr[mid]){
-            low = mid+1;
-        }
-        else if(arr[mid]<=arr[high]){
-            high = mid-1;
+        else {
+            if(arr[mid]>=arr[low] && arr[mid]<=arr[high]) return low; 
+            else if(arr[mid]>=arr[low]){low=mid+1;}
+            else if(arr[mid]<=arr[high]){high=mid-1;}
         }
     }
 }
