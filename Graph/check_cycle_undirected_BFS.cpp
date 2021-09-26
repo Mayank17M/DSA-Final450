@@ -1,5 +1,5 @@
 /**
- * Detect cycle in an undirected graph
+ * Detect cycle in an undirected graph using BFS
  * References: 
  *  https://www.youtube.com/watch?v=A8ko93TyOns&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=8
  */ 
@@ -7,7 +7,7 @@
 #include <bits/stdc++.h>
 using namespace std;
  
-bool checkCycle(int src, vector<bool> &visited, vector<int> adj[]){
+bool checkCycleBFS(int src, vector<bool> &visited, vector<int> adj[]){
     queue<pair<int, int> > q;
     q.push({src,-1});
     visited[src] = true;
@@ -35,7 +35,7 @@ bool isCycle(int V, vector<int> adj[]) {
     vector<bool> visited(V,false);
     for(int i=0;i<V;i++){
         if(!visited[i]){
-            if(checkCycle(i, visited, adj)) return true;
+            if(checkCycleBFS(i, visited, adj)) return true;
         }
     }
     return false;
