@@ -15,7 +15,7 @@ bool checkCycle(int node, vector<bool> &visited, vector<bool> &dfsvisit, vector<
             if(checkCycle(i, visited, dfsvisit, adj)) return true;
         } else if(dfsvisit[i]) return true;
     }
-    dfsvisit[node] = 0;
+    dfsvisit[node] = false;
     return false;
 }
 
